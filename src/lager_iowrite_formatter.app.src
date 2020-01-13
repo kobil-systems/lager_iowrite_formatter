@@ -1,6 +1,6 @@
 {application, lager_iowrite_formatter,
  [{description, "An OTP library"},
-  {vsn, "0.1.0"},
+  {vsn, git},
   {registered, []},
   {applications,
    [kernel,
