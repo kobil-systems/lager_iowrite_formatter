@@ -15,11 +15,12 @@ jobs:
     - name: Run tests
       run: rebar3 do eunit
 
-  lint:  
+  lint:
     runs-on: ubuntu-latest
     container:
       image: erlang:22.0.7
     steps:
+    - uses: actions/checkout@v1
     - name: Elvis
       uses: red-shirts/reviewdog-action-elvis@v1
       with:
