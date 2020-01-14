@@ -1,6 +1,8 @@
 lager_iowrite_formatter
 =====
 
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kobil-systems/lager_iowrite_formatter/Erlang%20CI?style=flat-square)
+
 Lager formatter that adds support for custom format specifiers to the metadata.
 It is especially useful when you want to format numbers in different format.
 
