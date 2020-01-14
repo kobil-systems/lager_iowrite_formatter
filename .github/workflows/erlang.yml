@@ -1,0 +1,26 @@
+name: Erlang CI
+
+on: [push]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: erlang:22.0.7
+    steps:
+    - uses: actions/checkout@v1
+    - name: Compile
+      run: rebar3 compile
+    - name: Run tests
+      run: rebar3 do eunit
+
+  lint:  
+    runs-on: ubuntu-latest
+    container:
+      image: erlang:22.0.7
+    steps:
+    - name: Elvis
+      uses: red-shirts/reviewdog-action-elvis@v1
+      with:
+        github_token: ${{ secrets.github_token }}
