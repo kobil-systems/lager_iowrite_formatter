@@ -368,6 +368,26 @@ basic_test_() ->
                         [{server,{"(~.16b)", pid, ["(Unknown Server)"]}}]
                     )))
         },
+        {"Metadata can have extra formatting5",
+            ?_assertEqual(iolist_to_binary(["(Unknown Server)"]),
+                iolist_to_binary(format(lager_msg:new("Message",
+                            Now,
+                            error,
+                            [],
+                            []),
+                        [{server,{"(~.16b)", pid, ["(Unknown Server)"]}}]
+                    )))
+        },
+        {"Metadata can have extra formatting6",
+            ?_assertEqual(iolist_to_binary(["(No Server)"]),
+                iolist_to_binary(format(lager_msg:new("Message",
+                            Now,
+                            error,
+                            [],
+                            []),
+                        [{server,{pid,{"(~.16b)", pid, ["(Unknown Server)"]}, ["(No Server)"]}}]
+                    )))
+        },
         {"Metadata can be printed in its enterity",
             ?_assertEqual(iolist_to_binary(["bar=2 baz=3 foo=1"]),
                 iolist_to_binary(format(lager_msg:new("Message",
